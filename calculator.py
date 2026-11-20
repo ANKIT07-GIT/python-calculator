@@ -41,7 +41,15 @@ def main():
 
     choice = input("Enter choice (1/2/3/4/5/6/7): ")
 
-    if choice in ('1', '2', '3', '4', '5', '6', '7'):
+    if choice == '7':
+        try:
+            num1 = float(input("Enter number: "))
+            print(f"√{num1} = {square_root(num1)}")
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+        return
+
+    if choice in ('1', '2', '3', '4', '5', '6'):
         try:
             num1 = float(input("Enter first number: "))
             num2 = float(input("Enter second number: "))
@@ -61,15 +69,8 @@ def main():
             print(f"{num1} ^ {num2} = {power(num1, num2)}")
         elif choice == '6':
             print(f"{num1} % {num2} = {modulo(num1, num2)}")
-        if choice == '7':
-            try:
-                num1 = float(input("Enter number: "))
-                print(f"√{num1} = {square_root(num1)}")
-            except ValueError:
-                print("Invalid input. Please enter a number.")
-            return
-        else:
-            print("Invalid Input")
+    else:
+        print("Invalid Input")
 
 if __name__ == "__main__":
     main()
