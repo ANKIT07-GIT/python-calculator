@@ -1,3 +1,4 @@
+# Testing VS Code Git GUI workflow
 import math
 
 def add(x, y):
