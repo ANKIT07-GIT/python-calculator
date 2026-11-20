@@ -1,3 +1,5 @@
+import math
+
 def add(x, y):
     return x + y
 
@@ -20,6 +22,11 @@ def modulo(x, y):
         return "Error: Cannot divide by zero"
     return x % y
 
+def square_root(x):
+    if x < 0:
+        return "Error: Cannot square root negative number"
+    return math.sqrt(x)
+
 def main():
     print("Select operation:")
     print("1. Add")
@@ -28,11 +35,12 @@ def main():
     print("4. Divide")
     print("5. Power")
     print("6. Modulo")
+    print("7. Square Root")
 
 
-    choice = input("Enter choice (1/2/3/4/5/6): ")
+    choice = input("Enter choice (1/2/3/4/5/6/7): ")
 
-    if choice in ('1', '2', '3', '4', '5', '6'):
+    if choice in ('1', '2', '3', '4', '5', '6', '7'):
         try:
             num1 = float(input("Enter first number: "))
             num2 = float(input("Enter second number: "))
@@ -52,6 +60,13 @@ def main():
             print(f"{num1} ^ {num2} = {power(num1, num2)}")
         elif choice == '6':
             print(f"{num1} % {num2} = {modulo(num1, num2)}")
+        if choice == '7':
+            try:
+                num1 = float(input("Enter number: "))
+                print(f"√{num1} = {square_root(num1)}")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+            return
         else:
             print("Invalid Input")
 
